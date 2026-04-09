@@ -1,0 +1,40 @@
+<store>
+    <app title = "Cosmic Defender">
+        <category>Games</category>
+        <price>4.99</price>
+        <rating>5</rating>
+        <language>English</language>
+        <language>Spanish</language>
+        <language>Japanese</language>
+    </app>
+    <app title="Word Master">
+        <category>Education</category>
+        <price>2.99</price>
+        <rating>4</rating>
+        <language>English</language>
+        <language>French</language>
+    </app>
+    <app title="Pixel Quest">
+        <category>Games</category>
+        <price>7.99</price>
+        <rating>4</rating>
+        <language>English</language>
+        <language>German</language>
+        <language>Korean</language>
+    </app>
+    <app title="Budget Tracker">
+        <category>Finance</category>
+        <price>0.99</price>
+        <rating>3</rating>
+        <language>English</language>
+    </app>
+    <app title="Galaxy Runner">
+        <category>Games</category>
+        <price>12.99</price>
+        <rating>5</rating>
+        <language>English</language>
+        <language>French</language>
+        <language>Chinese</language>
+        <language>Arabic</language>
+    </app>
+</store>
