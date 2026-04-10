@@ -32,15 +32,15 @@ specify the sets / (partial) functions $V$, $E$, $\eta$, $\lambda$ and $\nu$.
     \lambda &: 1 \to \{\text{Client}\}, 2 \to \{\text{Client}\}, 3 \to \{\text{Client}\}, \\
     &\quad 4 \to \{\text{Transaction}\}, 5 \to \{\text{Transaction}\}, 6 \to \{\text{Transaction}\} \\
     \nu &: \\
-    \text{(1, name)} \to \text{'Aramis'}, \\
-    \text{(2, name)} \to \text{'Athos'}, \\
-    \text{(3, name)} \to \text{'Porthos'}, \\
-    \text{(4, date)} \to \text{29:05:25}, \\
-    \text{(4, amount)} \to \text{20k}, \\
-    \text{(5, date)} \to \text{30:05:24}, \\
-    \text{(5, amount)} \to \text{25k}, \\
-    \text{(6, date)} \to \text{01:06:24}, \\
-    \text{(6, amount)} \to \text{15k} \\
+    &\text{(1, name)} \to \text{'Aramis'}, \\
+    &\text{(2, name)} \to \text{'Athos'}, \\
+    &\text{(3, name)} \to \text{'Porthos'}, \\
+    &\text{(4, date)} \to \text{29:05:25}, \\
+    &\text{(4, amount)} \to \text{20k}, \\
+    &\text{(5, date)} \to \text{30:05:24}, \\
+    &\text{(5, amount)} \to \text{25k}, \\
+    &\text{(6, date)} \to \text{01:06:24}, \\
+    &\text{(6, amount)} \to \text{15k} \\
 \end{aligned}
 \end{equation*}
 
@@ -51,12 +51,17 @@ queries on the graph G in Figure 1.
 \begin{itemize}
     \item \textbf{(a)} Return pairs of clients, c1 and c2 where client c1 transferred more
     than 5k to client c2. [2 marks]
+    
+    :transactionsOverThreshold(c1, c2) IN a $\leftarrow$ :transaction(c1, c2) AS t, t.amount > 5000.
+    result(c1, c2) $\leftarrow$ :transactionsOverThreshold(c1, c2).
 
     \item \textbf{(b)} Return pairs of clients in which client 1 initiates a transaction t
     to client 2 and client 2 initiates two transactions t1 and t2, both
     to client 1, where the total amount of t1 and t2 is the same as the
     amount of t, and t1 and t2 where initiated on different dates.
     [4 marks]
+
+    result
 
     \item \textbf{(c)} A fraud ring of length l has n clients where for i = 1, . . . , l - 1,
     client i initiates a transaction to client i + 1 with an amount of
@@ -70,9 +75,25 @@ queries on the graph G in Figure 1.
 queries from question 2 in Regular Property Graph Algebra. You do not
 have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
+\begin{itemize}
+    \item \textbf{(a)} 
+    
+    \item \textbf{(b)}
+    
+    \item \textbf{(c)} 
+\end{itemize}
+
 4. Write down all three queries from question 2 in Cypher. For this you
 might want to create a sample graph dataset similar to the graph in
 Figure 1 in Neo4j and test your answers. You do not have to evaluate
 the queries on the graph G in Figure 1.
+
+\begin{itemize}
+    \item \textbf{(a)} 
+    
+    \item \textbf{(b)}
+    
+    \item \textbf{(c)} 
+\end{itemize}
 
 \end{document} 
