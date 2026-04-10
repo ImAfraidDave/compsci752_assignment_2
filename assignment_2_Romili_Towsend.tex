@@ -52,7 +52,11 @@ queries on the graph G in Figure 1.
     \item \textbf{(a)} Return pairs of clients, c1 and c2 where client c1 transferred more
     than 5k to client c2. [2 marks]
     
-    result($c_1$, $c_2$) $\leftarrow$ :Transaction($c_1$, $c_2$) AS t, t.amount \textgreater 5000. \\
+    \begin{equation*}
+    \begin{aligned}
+        \text{result}(c_1, c_2) \leftarrow \text{:Transaction}(c_1, c_2) \text{ AS } t, \text{ } t.\text{amount} >5000. \\
+    \end{aligned}
+    \end{equation*}
 
     \item \textbf{(b)} Return pairs of clients in which client 1 initiates a transaction t
     to client 2 and client 2 initiates two transactions t1 and t2, both
@@ -66,7 +70,7 @@ queries on the graph G in Figure 1.
         & \text{:Transaction}(c_1, c_2) \text{ AS }t,              \\
         & \text{:Transaction}(c_2, c_1) \text{ AS }t_1,            \\
         & \text{:Transaction}(c_2, c_1) \text{ AS }t_2,            \\
-        & t_1.\text{date} \neq t_2.\text{date},                      \\
+        & t_1.\text{date} \neq t_2.\text{date},                    \\
         & t.\text{amount} = t_1.\text{amount} + t_2.\text{amount}. \\
     \end{aligned}
     \end{equation*}
@@ -89,7 +93,11 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 \begin{itemize}
     \item \textbf{(a)} 
     
-    $\bowtie$
+    \begin{equation*}
+    \begin{aligned}
+        \bowtie
+    \end{aligned}
+    \end{equation*}
 
     \item \textbf{(b)}
     
