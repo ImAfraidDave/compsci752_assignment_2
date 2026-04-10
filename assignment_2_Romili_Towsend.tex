@@ -48,8 +48,9 @@ specify the sets / (partial) functions $V$, $E$, $\eta$, $\lambda$ and $\nu$.
 in Regular Property Graph Logic. You do not have to evaluate the
 queries on the graph G in Figure 1.
 
-\begin{itemize}
-    \item \textbf{(a)} Return pairs of clients, c1 and c2 where client c1 transferred more
+\begin{enumerate}[label=(\alph*)]
+    % (a) %
+    \item Return pairs of clients, c1 and c2 where client c1 transferred more
     than 5k to client c2. [2 marks]
     
     \begin{equation*}
@@ -58,7 +59,8 @@ queries on the graph G in Figure 1.
     \end{aligned}
     \end{equation*}
 
-    \item \textbf{(b)} Return pairs of clients in which client 1 initiates a transaction t
+    % (b) %
+    \item Return pairs of clients in which client 1 initiates a transaction t
     to client 2 and client 2 initiates two transactions t1 and t2, both
     to client 1, where the total amount of t1 and t2 is the same as the
     amount of t, and t1 and t2 where initiated on different dates.
@@ -75,23 +77,29 @@ queries on the graph G in Figure 1.
     \end{aligned}
     \end{equation*}
 
-    \item \textbf{(c)} A fraud ring of length l has n clients where for i = 1, . . . , l - 1,
+    % (c) %
+    \item A fraud ring of length l has n clients where for i = 1, . . . , l - 1,
     client i initiates a transaction to client i + 1 with an amount of
     at least 50k, and client l initiates a transaction to client 1 with
     an amount of at least 50k.
     Return client 1 in any fraud ring of size l where l is an odd integer
     larger than 1. [4 marks]
 
+    \begin{equation*}
+    \begin{aligned}
+        \text{result}(c) \leftarrow
+    \end{aligned}
+    \end{equation*}
 
-
-\end{itemize}
+\end{enumerate}
 
 3. Consider again the three queries from question 2. Write down all three
 queries from question 2 in Regular Property Graph Algebra. You do not
 have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
-\begin{itemize}
-    \item \textbf{(a)} 
+\begin{enumerate}[label=(\alph*)]
+    % (a) %
+    \item 
     
     \begin{equation*}
     \begin{aligned}
@@ -99,22 +107,27 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
     \end{aligned}
     \end{equation*}
 
-    \item \textbf{(b)}
+    % (b) %
+    \item
     
-    \item \textbf{(c)} 
-\end{itemize}
+    % (c) %
+    \item
+\end{enumerate}
 
 4. Write down all three queries from question 2 in Cypher. For this you
 might want to create a sample graph dataset similar to the graph in
 Figure 1 in Neo4j and test your answers. You do not have to evaluate
 the queries on the graph G in Figure 1.
 
-\begin{itemize}
-    \item \textbf{(a)} 
+\begin{enumerate}[label=(\alph*)]
+    % (a) %
+    \item
     
-    \item \textbf{(b)}
-    
-    \item \textbf{(c)} 
-\end{itemize}
+    % (b) %
+    \item
+
+    % (c) %
+    \item
+\end{enumerate}
 
 \end{document} 
