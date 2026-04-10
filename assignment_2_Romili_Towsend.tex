@@ -63,11 +63,11 @@ queries on the graph G in Figure 1.
     \begin{equation*}
     \begin{aligned}
         \text{result}(c_1, c_2) \leftarrow \quad
-        & \text{:Transaction}(c_1, c_2) \text{ AS t,} \\
-        & \text{:Transaction}(c_2, c_1) \text{ AS t1,} \\
-        & \text{:Transaction}(c_2, c_1) \text{ AS t2,} \\
-        & \text{t1.date != t2.date,} \\
-        & \text{t.amount = t1.amount + t2.amount.} \\
+        & \text{:Transaction}(c_1, c_2) \text{ AS }t,              \\
+        & \text{:Transaction}(c_2, c_1) \text{ AS }t_1,            \\
+        & \text{:Transaction}(c_2, c_1) \text{ AS }t_2,            \\
+        & t_1.\text{date} \neq t_2.\text{date},                      \\
+        & t.\text{amount} = t_1.\text{amount} + t_2.\text{amount}. \\
     \end{aligned}
     \end{equation*}
 
@@ -77,6 +77,9 @@ queries on the graph G in Figure 1.
     an amount of at least 50k.
     Return client 1 in any fraud ring of size l where l is an odd integer
     larger than 1. [4 marks]
+
+
+
 \end{itemize}
 
 3. Consider again the three queries from question 2. Write down all three
