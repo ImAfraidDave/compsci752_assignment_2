@@ -17,7 +17,62 @@
 
 \begin{document}
 
-
 \maketitle
+
+1. Write down the formal property graph model that corresponds to the
+property graph G in Figure 1. This means for $G = (V, E, \eta, \lambda, \nu)$
+specify the sets / (partial) functions $V$, $E$, $\eta$, $\lambda$ and $\nu$.
+[10 marks]
+
+\begin{equation*}
+\begin{aligned}
+    V &: 1, 2, 3 \\
+    E &: 4, 5, 6 \\
+    \eta &: 4 \to (1,2), 5 \to (2,3), 6 \to (1,3) \\\
+    \lambda &: 1 \to \{\text{Client}\}, 2 \to \{\text{Client}\}, 3 \to \{\text{Client}\}, \\
+    &\quad 4 \to \{\text{Transaction}\}, 5 \to \{\text{Transaction}\}, 6 \to \{\text{Transaction}\} \\
+    \nu &: \\
+    \text{(1, name)} \to \text{'Aramis'}, \\
+    \text{(2, name)} \to \text{'Athos'}, \\
+    \text{(3, name)} \to \text{'Porthos'}, \\
+    \text{(4, date)} \to \text{29:05:25}, \\
+    \text{(4, amount)} \to \text{20k}, \\
+    \text{(5, date)} \to \text{30:05:24}, \\
+    \text{(5, amount)} \to \text{25k}, \\
+    \text{(6, date)} \to \text{01:06:24}, \\
+    \text{(6, amount)} \to \text{15k} \\
+\end{aligned}
+\end{equation*}
+
+2. For each of the following English language queries, write it down
+in Regular Property Graph Logic. You do not have to evaluate the
+queries on the graph G in Figure 1.
+
+\begin{itemize}
+    \item \textbf{(a)} Return pairs of clients, c1 and c2 where client c1 transferred more
+    than 5k to client c2. [2 marks]
+
+    \item \textbf{(b)} Return pairs of clients in which client 1 initiates a transaction t
+    to client 2 and client 2 initiates two transactions t1 and t2, both
+    to client 1, where the total amount of t1 and t2 is the same as the
+    amount of t, and t1 and t2 where initiated on different dates.
+    [4 marks]
+
+    \item \textbf{(c)} A fraud ring of length l has n clients where for i = 1, . . . , l - 1,
+    client i initiates a transaction to client i + 1 with an amount of
+    at least 50k, and client l initiates a transaction to client 1 with
+    an amount of at least 50k.
+    Return client 1 in any fraud ring of size l where l is an odd integer
+    larger than 1. [4 marks]
+\end{itemize}
+
+3. Consider again the three queries from question 2. Write down all three
+queries from question 2 in Regular Property Graph Algebra. You do not
+have to evaluate the queries on the graph G in Figure 1. [10 marks]
+
+4. Write down all three queries from question 2 in Cypher. For this you
+might want to create a sample graph dataset similar to the graph in
+Figure 1 in Neo4j and test your answers. You do not have to evaluate
+the queries on the graph G in Figure 1.
 
 \end{document} 
