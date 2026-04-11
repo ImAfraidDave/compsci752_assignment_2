@@ -79,21 +79,18 @@ queries on the graph G in Figure 1.
     \end{equation*}
 
     % (c) %
-    \item A fraud ring of length l has n clients where for i = 1, . . . , l - 1,
-    client i initiates a transaction to client i + 1 with an amount of
-    at least 50k, and client l initiates a transaction to client 1 with
+    \item A fraud ring of length $l$ has n clients where for $i = 1, . . . , l - 1$,
+    client i initiates a transaction to client $i + 1$ with an amount of
+    at least 50k, and client l initiates a transaction to client $1$ with
     an amount of at least 50k.
-    Return client 1 in any fraud ring of size l where l is an odd integer
-    larger than 1. [4 marks]
-
-    % TODO: Fix this equation
+    Return client $1$ in any fraud ring of size $l$ where $l$ is an odd integer
+    larger than $1$. [4 marks]
 
     \begin{equation*}
     \begin{aligned}
-        \text{result}(c) \leftarrow \quad 
-        & ((t_i * t_{i+1} * t)^*)(c_1, c_2), \\
-        & \text{:Transaction}(c_1, c_1) \text{ AS } t, \\
-        & \text{:Transaction}(c_1, c_2) \text{ AS } t', \text{ } t'.\text{amount} \ge 50000,
+        \text{result}(c_1) \leftarrow \quad 
+        & \text{:Transaction*}(c_1, c_l) \text{ AS } t, \text{ } t.\text{amount} \ge 50000, \\
+        & \text{:Transaction}(c_l, c_1) \text{ AS } t', \text{ } t'.\text{amount} \ge 50000, \\
         & l > 1, \text{ } l \bmod 2 \neq 0.
     \end{aligned}
     \end{equation*}
@@ -113,7 +110,7 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
     
     \begin{equation*}
     \begin{aligned}
-        \bowtie^{\Phi}_{\text{src, trg}}\text{(:Transaction) where } \Phi \text{ is trg.amount} >5000
+        \bowtie^{\Phi}_{\text{src, trg}}\sigma_{\text{amount} > 5000}\text{(:Transaction)}
     \end{aligned}
     \end{equation*}
 
