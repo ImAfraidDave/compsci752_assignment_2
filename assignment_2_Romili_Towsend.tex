@@ -103,8 +103,6 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
 
 \begin{enumerate}[label=(\alph*)]
-    % TODO: Complete all 3 of these equations
-
     % (a) %
     \item 
     
@@ -117,14 +115,23 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
     % (b) %
     \item
     
+    % TODO: This equation is most likely wrong, I need to fix it
+
     \begin{equation*}
     \begin{aligned}
-        \bowtie^{\Phi}_{\text{src}}
+        \bowtie^{\text{\O}}_{\text{src}}
+        (\bowtie^{\Phi}_{\text{src$_1$, trg$_1$}}\text{(:Transaction) }
+        \bowtie^{\Phi}_{\text{src$_2$, trg$_2$}}\text{(:Transaction) }
+        \bowtie^{\Phi}_{\text{src$_3$, trg$_3$}}\text{(:Transaction)}) \\
+        \noalign{where $\Phi$ is src$_2=$ src$_3$, trg$_1=$ src$_2$, trg$_2=$ src$_1$, trg$_3=$ src$_1$,}
+        \noalign{edge$_1$.amount = edge$_2$.amount + edge$_3$.amount}
     \end{aligned}
     \end{equation*}
 
     % (c) %
     \item 
+
+    % TODO: Complete 3c
 
     \begin{equation*}
     \begin{aligned}
@@ -145,6 +152,13 @@ the queries on the graph G in Figure 1.
     % (a) %
     \item
     
+    % TODO: Verify that this one works
+    
+    MATCH(c1:Client)-[t:Transaction]-$>$(c2:Client)
+    WHERE toFloat(t.amount) $>$ 5000
+    RETURN c1, c2
+
+
     % (b) %
     \item
 
