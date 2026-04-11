@@ -155,12 +155,18 @@ the queries on the graph G in Figure 1.
     % TODO: Verify that this one works
     
     MATCH(c1:Client)-[t:Transaction]-$>$(c2:Client)
-    WHERE toFloat(t.amount) $>$ 5000
+    WHERE t.amount $>$ 5000
     RETURN c1, c2
 
 
     % (b) %
     \item
+
+    MATCH (c2:Client)-[t1]->(c1:Client), (c1)-[t]->(c2)-[t2]->(c1)
+    WHERE t1 <> t2
+        AND t1.date <> t2.date
+        AND t.amount = t1.amount + t2.amount
+    RETURN c1, c2
 
     % (c) %
     \item
