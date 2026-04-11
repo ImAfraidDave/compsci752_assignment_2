@@ -154,8 +154,8 @@ the queries on the graph G in Figure 1.
     
     % TODO: Verify that this one works
     
-    MATCH(c1:Client)-[t:Transaction]-$>$(c2:Client)
-    WHERE t.amount $>$ 5000
+    MATCH(c1:Client)-[t:Transaction]-$>$(c2:Client) \\
+    WHERE t.amount $>$ 5000                         \\
     RETURN c1, c2
 
 
