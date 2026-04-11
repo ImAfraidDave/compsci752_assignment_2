@@ -72,6 +72,7 @@ queries on the graph G in Figure 1.
         & \text{:Transaction}(c_1, c_2) \text{ AS }t,              \\
         & \text{:Transaction}(c_2, c_1) \text{ AS }t_1,            \\
         & \text{:Transaction}(c_2, c_1) \text{ AS }t_2,            \\
+        & t_1 \neq t_2,                                            \\
         & t_1.\text{date} \neq t_2.\text{date},                    \\
         & t.\text{amount} = t_1.\text{amount} + t_2.\text{amount}. \\
     \end{aligned}
@@ -85,9 +86,15 @@ queries on the graph G in Figure 1.
     Return client 1 in any fraud ring of size l where l is an odd integer
     larger than 1. [4 marks]
 
+    % TODO: Fix this equation
+
     \begin{equation*}
     \begin{aligned}
-        \text{result}(c) \leftarrow
+        \text{result}(c) \leftarrow \quad 
+        & ((t_i * t_{i+1} * t)^*)(c_1, c_2), \\
+        & \text{:Transaction}(c_1, c_1) \text{ AS } t, \\
+        & \text{:Transaction}(c_1, c_2) \text{ AS } t', \text{ } t'.\text{amount} \ge 50000,
+        & l > 1, \text{ } l \bmod 2 \neq 0.
     \end{aligned}
     \end{equation*}
 
@@ -97,21 +104,37 @@ queries on the graph G in Figure 1.
 queries from question 2 in Regular Property Graph Algebra. You do not
 have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
+
 \begin{enumerate}[label=(\alph*)]
+    % TODO: Complete all 3 of these equations
+
     % (a) %
     \item 
     
     \begin{equation*}
     \begin{aligned}
-        \bowtie
+        \bowtie^{\Phi}_{\text{src}}
     \end{aligned}
     \end{equation*}
 
     % (b) %
     \item
     
+    \begin{equation*}
+    \begin{aligned}
+        \bowtie^{\Phi}_{\text{src}}
+    \end{aligned}
+    \end{equation*}
+
     % (c) %
-    \item
+    \item 
+
+    \begin{equation*}
+    \begin{aligned}
+        \bowtie^{\Phi}_{\text{src}}
+    \end{aligned}
+    \end{equation*}
+
 \end{enumerate}
 
 4. Write down all three queries from question 2 in Cypher. For this you
@@ -120,6 +143,8 @@ Figure 1 in Neo4j and test your answers. You do not have to evaluate
 the queries on the graph G in Figure 1.
 
 \begin{enumerate}[label=(\alph*)]
+    % TODO: Complete all 3 of these equations
+
     % (a) %
     \item
     
