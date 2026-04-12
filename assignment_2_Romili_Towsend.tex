@@ -157,15 +157,13 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
     \begin{equation*}
     \begin{aligned}
-        \bowtie^{\Phi}_{\text{src}}
+        \bowtie^{\Phi}_{\text{src$_1$}}
         \Big(
-            \bowtie^{\Psi}_{\text{src$_1$, trg$_1$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) }\cup
-            \bowtie^{\Psi}_{\text{src$_2$, trg$_2$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction)* }\cup \\
-            \bowtie^{\Psi}_{\text{src$_3$, trg$_3$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) } \\
-            \bowtie^{\Psi}_{\text{src$_3$, trg$_3$}}\sigma_{\text{amount} \ge 50000}(:Transaction, :Transaction*, :Transaction)
+        & \bowtie^{\text{\O}}_{\text{src$_1$, trg$_1$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) } \\
+        & \bowtie^{\text{\O}}_{\text{src$_2$, trg$_2$}}(\sigma_{\text{amount} \ge 50000}\text{(:Transaction))*} \\
+        & \bowtie^{\text{\O}}_{\text{src$_3$, trg$_3$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) }
         \Big) \\
-        \noalign{where $\Psi$ is trg$_1=$ src$_2$, trg$_2=$ src$_3$, trg$_3=$ src$_1$,}
-        \noalign{where $\Phi$ is edge.amount $\ge$ 50000}
+        \noalign{where $\Phi$ is trg$_1=$ src$_2$, trg$_2=$ src$_3$, trg$_3=$ src$_1$,}
     \end{aligned}
     \end{equation*}
 
@@ -177,7 +175,6 @@ Figure 1 in Neo4j and test your answers. You do not have to evaluate
 the queries on the graph G in Figure 1.
 
 \begin{enumerate}[label=(\alph*)]
-    % TODO: Complete all 3 of these equations
 
     % (a) %
     \item
