@@ -140,14 +140,15 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
     \begin{equation*}
     \begin{aligned}
-        \bowtie^{\text{\O}}_{\text{src, trg}}
+        \bowtie^{\Phi}_{\text{src, trg}}
         \Big(
-            \bowtie^{\Phi}_{\text{src$_1$, trg$_1$}}\text{(:Transaction)}
-            \bowtie^{\Phi}_{\text{src$_2$, trg$_2$}}\text{(:Transaction)}
-            \bowtie^{\Phi}_{\text{src$_3$, trg$_3$}}\text{(:Transaction)}
+            \bowtie^{\text{\O}}_{\text{src$_1$, trg$_1$}}\text{(:Transaction)}
+            \bowtie^{\text{\O}}_{\text{src$_2$, trg$_2$}}\text{(:Transaction)}
+            \bowtie^{\text{\O}}_{\text{src$_3$, trg$_3$}}\text{(:Transaction)}
         \Big) \\
         \noalign{where $\Phi$ is src$_2=$ src$_3$, trg$_1=$ src$_2$, trg$_2=$ src$_1$, trg$_3=$ src$_1$,}
-        \noalign{edge$_1$.amount = edge$_2$.amount + edge$_3$.amount}
+        \noalign{edge$_1$.amount = edge$_2$.amount + edge$_3$.amount,}
+        \noalign{edge$_2$.date $\ne$ edge$_3$.date}
     \end{aligned}
     \end{equation*}
 
