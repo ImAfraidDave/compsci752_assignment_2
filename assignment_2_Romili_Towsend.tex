@@ -5,6 +5,25 @@
 \usepackage{listings}
 \usepackage{xcolor}
 
+\lstdefinelanguage{Cypher}{
+  keywords={MATCH, WHERE, RETURN, AND, OR, NOT},
+  sensitive=true,
+  morecomment=[l]{//},
+  morestring=[b]"
+}
+
+\lstset{
+  language=Cypher,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue}\bfseries,
+  columns=fullflexible,
+  keepspaces=true,
+  stringstyle=\color{red},
+  showstringspaces=false,
+  breaklines=true
+}
+
+
 \graphicspath{ {./images/} }
 
 \papercode{COMPSCI752}
@@ -114,8 +133,6 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
     % (b) %
     \item
-    
-    % TODO: This equation is most likely wrong, I need to fix it
 
     \begin{equation*}
     \begin{aligned}
@@ -153,23 +170,23 @@ the queries on the graph G in Figure 1.
 
     % (a) %
     \item
-    
-    % TODO: Verify that this one works
-    
-    MATCH(c1:Client)-[t:Transaction]-$>$(c2:Client) \\
-    WHERE t.amount $>$ 5000                         \\
+    \begin{lstlisting}
+    MATCH(c1:Client)-[t:Transaction]->(c2:Client)
+    WHERE t.amount > 5000
     RETURN c1, c2
+    \end{lstlisting}
 
 
     % (b) %
     \item
-    
-    MATCH (c2:Client)-[t1:Transaction]-$>$(c1:Client),      \\
-    (c1)-[t:Transaction]-$>$(c2)-[t2:Transaction]-$>$(c1)   \\
-    WHERE t1 $<>$ t2                                        \\
-        AND t1.date $<>$ t2.date                            \\
-        AND t.amount = t1.amount + t2.amount                \\
+    \begin{lstlisting}
+    MATCH (c2:Client)-[t1:Transaction]->(c1:Client),
+    (c1)-[t:Transaction]->(c2)-[t2:Transaction]->(c1)
+    WHERE t1 <> t2
+        AND t1.date <> t2.date
+        AND t.amount = t1.amount + t2.amount
     RETURN c1, c2
+    \end{lstlisting}
 
     % (c) %
     \item
