@@ -8,6 +8,8 @@
 \lstdefinelanguage{Cypher}{
   keywords={MATCH, WHERE, RETURN, AND, OR, NOT},
   sensitive=true,
+  morekeywords=[2]{Client},
+  morekeywords=[3]{date, amount},
   morecomment=[l]{//},
   morestring=[b]"
 }
@@ -16,6 +18,8 @@
   language=Cypher,
   basicstyle=\ttfamily,
   keywordstyle=\color{blue}\bfseries,
+  keywordstyle=[2]\color{orange}\bfseries,
+  keywordstyle=[3]\color{red},
   columns=fullflexible,
   keepspaces=true,
   stringstyle=\color{red},
