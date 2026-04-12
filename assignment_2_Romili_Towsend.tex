@@ -6,7 +6,7 @@
 \usepackage{xcolor}
 
 \lstdefinelanguage{Cypher}{
-  keywords={MATCH, WHERE, RETURN, AND, OR, NOT},
+  keywords={MATCH, WHERE, RETURN, AND, OR, NOT, WITH},
   sensitive=true,
   morekeywords=[2]{Client},
   morekeywords=[3]{date, amount},
@@ -142,8 +142,8 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
     \begin{aligned}
         \bowtie^{\text{\O}}_{\text{src, trg}}
         \Big(
-            \bowtie^{\Phi}_{\text{src$_1$, trg$_1$}}\text{(:Transaction) }\cup
-            \bowtie^{\Phi}_{\text{src$_2$, trg$_2$}}\text{(:Transaction) }\cup
+            \bowtie^{\Phi}_{\text{src$_1$, trg$_1$}}\text{(:Transaction)}
+            \bowtie^{\Phi}_{\text{src$_2$, trg$_2$}}\text{(:Transaction)}
             \bowtie^{\Phi}_{\text{src$_3$, trg$_3$}}\text{(:Transaction)}
         \Big) \\
         \noalign{where $\Phi$ is src$_2=$ src$_3$, trg$_1=$ src$_2$, trg$_2=$ src$_1$, trg$_3=$ src$_1$,}
@@ -153,12 +153,19 @@ have to evaluate the queries on the graph G in Figure 1. [10 marks]
 
     % (c) %
     \item 
-
     % TODO: Complete 3c
 
     \begin{equation*}
     \begin{aligned}
         \bowtie^{\Phi}_{\text{src}}
+        \Big(
+            \bowtie^{\Psi}_{\text{src$_1$, trg$_1$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) }\cup
+            \bowtie^{\Psi}_{\text{src$_2$, trg$_2$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction)* }\cup \\
+            \bowtie^{\Psi}_{\text{src$_3$, trg$_3$}}\sigma_{\text{amount} \ge 50000}\text{(:Transaction) } \\
+            \bowtie^{\Psi}_{\text{src$_3$, trg$_3$}}\sigma_{\text{amount} \ge 50000}(:Transaction, :Transaction*, :Transaction)
+        \Big) \\
+        \noalign{where $\Psi$ is trg$_1=$ src$_2$, trg$_2=$ src$_3$, trg$_3=$ src$_1$,}
+        \noalign{where $\Phi$ is edge.amount $\ge$ 50000}
     \end{aligned}
     \end{equation*}
 
@@ -193,7 +200,14 @@ the queries on the graph G in Figure 1.
     \end{lstlisting}
 
     % (c) %
-    \item
+    \item 
+    \begin{lstlisting}
+    MATCH p = (c1:Client)-[r:Transaction*2..]->(c1)
+    WITH c1, p, length(p) AS l
+    WHERE l % 2 = 1
+        AND ALL(rel IN r WHERE rel.amount >= 50000)
+    RETURN c1
+    \end{lstlisting}
 \end{enumerate}
 
 \end{document} 
